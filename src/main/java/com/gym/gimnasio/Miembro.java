@@ -1,0 +1,37 @@
+package com.gym.gimnasio;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Miembro {
+
+    private String nombre;
+    private int edad;
+
+    public Miembro(String nombre, int edad) {
+        this.nombre = nombre;
+        setEdad(edad);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        if (edad > 0) {
+            this.edad = edad;
+        }
+    }
+
+    @JsonProperty("cuotaMensual")
+    public double cuotaMensual() {
+        return  100000.0;
+    }
+
+    public String descripcion() {
+        return nombre + " (" + edad + " años";
+    }
+}
